@@ -62,9 +62,9 @@ HTTP GET /api/getData
 ```
 This endpint allows you to get information from our systems, this isn't really used by developers, it's mostly used by the frontend to get information and display your information. Some developers may want to use this so they can have commands in their bot to show some information that Analyticord collects. 
 
-The getData endpoint requires the 'dataType' query, this is the eventType that you submitted, for example:
+The getData endpoint requires the 'dataType' query, this is the eventType that you submitted, it can also support a 'limit' query, this counts from 1, here's an example
 ```
-GET /api/getData?dataType=demo
+GET /api/getData?dataType=demo&limit=1
 ```
 This endpoint will either return the following errors:
 
