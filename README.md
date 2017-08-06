@@ -1,2 +1,1 @@
-# docs
-AC Docs
+# Analyticord Documentation
