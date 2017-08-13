@@ -10,6 +10,10 @@ All URIs, GET or POST start with https://api.analyticord.solutions/
 
 An eventType or endpoint that can be used by anybody.
 
+> BetaEndpoint
+
+This endpoint may not always return expected errors.
+
 ## Errors you may get sent
 
 When working with our API, you might encounter some errors when submitting data, getting data or doing anything really. As Analyticord is still in beta, we add new errors... ALOT, so it would be foolish of us to give you a list in here, for a list of all in-production errors please GET request this URL: https://api.analyticord.solutions/api/error?error=list this will give you a JSON response of every error the system can send you.
@@ -20,7 +24,7 @@ The errors all have an ID, that is just for the backend and won't be sent to you
 
 ## Authorization (it's spelt authorisation... get it right America)
 
-Almost all endpoints require authorization, mostly from the bot. Please provide a HTTP header called Authorization with the following
+Almost all endpoints require authorization, mostly from the user. Please provide a HTTP header called Authorization with the following
 
 For user auth:
 
@@ -55,16 +59,16 @@ eventType = eventType (See a list at the bottom of this document of eventTypes)
 If data is sent successfully, you'll get a 200 OK reply.
 
 ## Getting data
-> Auth: BOT
+> Auth: USER
 This endpoint is subject to change in the future.
 ```
-HTTP GET /api/getData 
+HTTP GET /api/getData
 ```
 This endpint allows you to get information from our systems, this isn't really used by developers, it's mostly used by the frontend to get information and display your information. Some developers may want to use this so they can have commands in their bot to show some information that Analyticord collects. 
 
-The getData endpoint requires the 'dataType' query, this is the eventType that you submitted, it can also support a 'limit' query, this counts from 1, here's an example
+The getData endpoint requires the 'dataType' query, this is the eventType that you submitted, it can also support a 'limit' query, this counts from 1, finally, you must provide the id query, with the ID of the bot you wish to recieve data for.
 ```
-GET /api/getData?dataType=demo&limit=1
+GET /api/getData?dataType=demo&limit=1&id=123
 ```
 This endpoint will either return the following errors:
 
@@ -100,4 +104,26 @@ Or contain all the values you have submitted, for example:
         "time": 1502031545663
     }
 ]```
+
+## Bot information 
+> AUTH: USER
+```
+GET: /api/botinfo
+```
+This endpoint is used to get information about a bot that your user token owns, again, this endpoint is mainly used by the frontend, but feel free to use it yourself.
+
+It requires the query id, to get information for a specific bot. For example:
+```
+GET: /api/botinfo?id=123
+AUTH: user xx
+```
+
+## A list of bots
+```
+GET: /api/botlist
+```
+This endpoints returns a list of bots that your user token owns, this also is mainly for the frontend.
+
+All it requires is auth and will return a list of bots owned by you.
+
 
