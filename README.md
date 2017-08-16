@@ -43,6 +43,22 @@ or use your user token and login GET /api/user/bots. Each endpoint listed below 
 
 > Auth: BOT
 
+## Login test
+> Auth: BOT
+Before submitting data, it's probably a good idea to make sure the details your owner gave you are correct, to do this we have the endpoint
+```
+/api/botLogin
+```
+Give this your token and it will either wrongToken 418 you, or 200 OK you with a JSON response, like this
+```
+{
+    "name": "MyAmazingDiscordBot#4205",
+    "id": "281163671756544001",
+    "owner": "1393554404455524352"
+}
+```
+You could print this into the console or something.
+
 ## Submitting data
 > Auth: BOT
 ```
