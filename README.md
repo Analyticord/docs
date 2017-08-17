@@ -80,7 +80,7 @@ This endpoint is subject to change in the future.
 ```
 HTTP GET /api/getData
 ```
-This endpint allows you to get information from our systems, this isn't really used by developers, it's mostly used by the frontend to get information and display your information. Some developers may want to use this so they can have commands in their bot to show some information that Analyticord collects. 
+This endpoint allows you to get information from our systems, this isn't really used by developers, it's mostly used by the frontend to get information and display your information. Some developers may want to use this so they can have commands in their bot to show some information that Analyticord collects. 
 
 The getData endpoint requires the 'dataType' query, this is the eventType that you submitted, it can also support a 'limit' query, this counts from 1, finally, you must provide the id query, with the ID of the bot you wish to recieve data for.
 ```
